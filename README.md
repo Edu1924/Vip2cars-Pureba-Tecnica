@@ -6,11 +6,11 @@
 # VIP2CARS — Portal de Gestión
 
 **Sistema interno para registro de vehículos y encuestas anónimas**  
-Desarrollado con Laravel · Blade · MySQL
+Desarrollado con Laravel · Blade · SQLite
 
 [![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://mysql.com)
+[![SQLite](https://img.shields.io/badge/SQLite-07405E?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org)
 [![Node](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 
 </div>
@@ -45,7 +45,6 @@ Asegúrate de tener instalado lo siguiente antes de continuar:
 | Composer | 2.x | `composer -V` |
 | Node.js | 18.x | `node -v` |
 | npm | 9.x | `npm -v` |
-| MySQL | 8.0 | `mysql --version` |
 | Git | cualquiera | `git --version` |
 
 ---
@@ -79,43 +78,27 @@ npm install
 
 ### 4 — Configurar variables de entorno
 
-Copia el archivo de ejemplo y edítalo con tus credenciales locales:
+Copia el archivo de ejemplo:
 
 ```bash
 cp .env.example .env
 ```
 
-Abre `.env` y configura al menos los siguientes valores:
-
-```env
-APP_NAME="VIP2CARS Portal"
-APP_URL=http://localhost:8000
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=vip2cars
-DB_USERNAME=root
-DB_PASSWORD=tu_contraseña
-```
-
-Luego genera la clave de aplicación:
+Genera la clave de la aplicación:
 
 ```bash
 php artisan key:generate
 ```
 
+> **Nota importante:** El proyecto viene preconfigurado para ejecutarse con **SQLite** (`DB_CONNECTION=sqlite`). **No es necesario configurar credenciales ni bases de datos localmente**, el archivo `.env.example` ya contiene la configuración ideal.
+
 ### 5 — Ejecutar migraciones
 
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 
-> Crea todas las tablas necesarias en la base de datos configurada en `.env`.  
-> Para también poblar datos de prueba, añade el flag `--seed`:
-> ```bash
-> php artisan migrate --seed
-> ```
+> **SQLite:** Laravel te preguntará si deseas crear el nuevo archivo `database.sqlite` de forma automática. Responde escribiendo `yes`. Las migraciones crearán las tablas y los seeders insertarán los datos de inicio.
 
 ### 6 — Levantar el servidor de desarrollo
 
@@ -141,12 +124,7 @@ Las variables más importantes del archivo `.env`:
 | `APP_ENV` | Entorno de ejecución | `local` |
 | `APP_DEBUG` | Modo debug (desactivar en producción) | `true` |
 | `APP_URL` | URL base de la aplicación | `http://localhost` |
-| `DB_CONNECTION` | Driver de base de datos | `mysql` |
-| `DB_HOST` | Host de la base de datos | `127.0.0.1` |
-| `DB_PORT` | Puerto de la base de datos | `3306` |
-| `DB_DATABASE` | Nombre de la base de datos | `vip2cars` |
-| `DB_USERNAME` | Usuario de la base de datos | `root` |
-| `DB_PASSWORD` | Contraseña de la base de datos | _(vacío)_ |
+| `DB_CONNECTION` | Driver de base de datos | `sqlite` |
 
 > ⚠️ **Nunca subas el archivo `.env` al repositorio.** Está incluido en `.gitignore` por defecto.
 
