@@ -29,7 +29,7 @@ Desarrollado con Laravel · Blade · SQLite
 
 ## Descripción general
 
-Portal web interno de **VIP2CARS** — el primer taller automotriz especializado en vehículos de gama alta en Lima Norte — que permite:
+Portal web interno de **VIP2CARS**
 
 - **Registrar y gestionar vehículos** con datos del cliente asociado (CRUD completo).
 
