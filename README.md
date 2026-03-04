@@ -1,59 +1,186 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<!-- Logo / Banner -->
+<img src="https://www.vip2cars.com/img/logo/vip2car_logo.svg" alt="VIP2CARS Logo" height="72" />
 
-## About Laravel
+# VIP2CARS — Portal de Gestión
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Sistema interno para registro de vehículos y encuestas anónimas**  
+Desarrollado con Laravel · Blade · MySQL
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://mysql.com)
+[![Node](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+</div>
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Tabla de contenidos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. [Descripción general](#descripción-general)
+2. [Requisitos previos](#requisitos-previos)
+3. [Instalación y puesta en marcha](#instalación-y-puesta-en-marcha)
+4. [Variables de entorno](#variables-de-entorno)
+5. [Comandos útiles](#comandos-útiles)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Descripción general
 
-### Premium Partners
+Portal web interno de **VIP2CARS** — el primer taller automotriz especializado en vehículos de gama alta en Lima Norte — que permite:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **Registrar y gestionar vehículos** con datos del cliente asociado (CRUD completo).
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Requisitos previos
 
-## Code of Conduct
+Asegúrate de tener instalado lo siguiente antes de continuar:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Herramienta | Versión mínima | Verificar |
+|-------------|---------------|-----------|
+| PHP | 8.2 | `php -v` |
+| Composer | 2.x | `composer -V` |
+| Node.js | 18.x | `node -v` |
+| npm | 9.x | `npm -v` |
+| MySQL | 8.0 | `mysql --version` |
+| Git | cualquiera | `git --version` |
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Instalación y puesta en marcha
 
-## License
+Sigue estos pasos **en orden** para levantar el proyecto localmente.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 1 — Clonar el repositorio
+
+```bash
+git clone https://github.com/vip2cars/portal.git
+cd portal
+```
+
+### 2 — Instalar dependencias PHP
+
+```bash
+composer install
+```
+
+> Esto descarga todos los paquetes definidos en `composer.json` dentro de la carpeta `vendor/`.
+
+### 3 — Instalar dependencias JavaScript
+
+```bash
+npm install
+```
+
+> Instala las dependencias de front-end definidas en `package.json`.
+
+### 4 — Configurar variables de entorno
+
+Copia el archivo de ejemplo y edítalo con tus credenciales locales:
+
+```bash
+cp .env.example .env
+```
+
+Abre `.env` y configura al menos los siguientes valores:
+
+```env
+APP_NAME="VIP2CARS Portal"
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=vip2cars
+DB_USERNAME=root
+DB_PASSWORD=tu_contraseña
+```
+
+Luego genera la clave de aplicación:
+
+```bash
+php artisan key:generate
+```
+
+### 5 — Ejecutar migraciones
+
+```bash
+php artisan migrate
+```
+
+> Crea todas las tablas necesarias en la base de datos configurada en `.env`.  
+> Para también poblar datos de prueba, añade el flag `--seed`:
+> ```bash
+> php artisan migrate --seed
+> ```
+
+### 6 — Levantar el servidor de desarrollo
+
+```bash
+php artisan serve
+```
+
+La aplicación estará disponible en:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## Variables de entorno
+
+Las variables más importantes del archivo `.env`:
+
+| Variable | Descripción | Valor por defecto |
+|----------|-------------|-------------------|
+| `APP_NAME` | Nombre de la aplicación | `VIP2CARS Portal` |
+| `APP_ENV` | Entorno de ejecución | `local` |
+| `APP_DEBUG` | Modo debug (desactivar en producción) | `true` |
+| `APP_URL` | URL base de la aplicación | `http://localhost` |
+| `DB_CONNECTION` | Driver de base de datos | `mysql` |
+| `DB_HOST` | Host de la base de datos | `127.0.0.1` |
+| `DB_PORT` | Puerto de la base de datos | `3306` |
+| `DB_DATABASE` | Nombre de la base de datos | `vip2cars` |
+| `DB_USERNAME` | Usuario de la base de datos | `root` |
+| `DB_PASSWORD` | Contraseña de la base de datos | _(vacío)_ |
+
+> ⚠️ **Nunca subas el archivo `.env` al repositorio.** Está incluido en `.gitignore` por defecto.
+
+---
+
+## Comandos útiles
+
+```bash
+# Limpiar caché de la aplicación
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+
+# Rehacer todas las migraciones (⚠️ elimina datos)
+php artisan migrate:fresh
+
+# Rehacer migraciones con seeders
+php artisan migrate:fresh --seed
+
+# Ver todas las rutas registradas
+php artisan route:list
+
+# Compilar assets de front-end
+npm run dev        # Modo desarrollo (watch)
+npm run build      # Producción
+```
+
+---
+
+<div align="center">
+
+**VIP2CARS** · Desarrollado por Eduardo Martínez Sotelo
+[trabajoeduardo1924@gmail.com](mailto:trabajoeduardo1924@gmail.com) · [929 642 450](tel:929642450)
+
+© 2025 Eduardo Martínez Sotelo. Todos los derechos reservados.
+
+</div>
